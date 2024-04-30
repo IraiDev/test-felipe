@@ -5,6 +5,10 @@ function App() {
   const [data, setData] = useState([]);
   const [input, setInput] = useState("");
 
+  const f1 = (n = 1) => {
+    return n + 1;
+  };
+
   const handleAgregarLista = (color, idx) => {
     setData((prev) => {
       return [...prev, { id: idx, color, nombre: input }];
@@ -12,6 +16,8 @@ function App() {
 
     setInput("");
   };
+  const resultado = f1(4);
+  console.log({ resultado });
 
   return (
     <>
@@ -28,9 +34,9 @@ function App() {
       </button>
 
       {data?.map((item) => (
-        <div key={item.id} style={{ backgroundColor: item.color }}>
+        <button key={item.id} style={{ backgroundColor: item.color }}>
           {item.nombre} {item.id}
-        </div>
+        </button>
       ))}
     </>
   );
